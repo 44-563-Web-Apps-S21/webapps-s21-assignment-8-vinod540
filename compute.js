@@ -18,13 +18,13 @@ const server =
             console.log("Queries: " + search_params)
 
             if (req.method === 'GET') {
-                console.log("Look for query parameter data: " + search_params.get("data"))
-          let x=Number(search_params.get("x"));
+                
+                let x = search_params.get("x")
+                let y = search_params.get("y")
           // Process the queries here
           res.statusCode = 200      //code for OK
           res.setHeader('Content-Type', 'text/plain')
-          res.write(`absolute value of ${x} is ${Math.abs(x)}`)
-          res.write('abs results')
+          res.write(`abs(${x}) is ${Math.abs(x)} and abs(${y}) is ${Math.abs(y)}`)
           res.end();               
             } else {
                 console.log("Status 404")
