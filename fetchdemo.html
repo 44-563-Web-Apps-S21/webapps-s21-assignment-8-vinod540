@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>fetch webpage</title>
+</head>
+<body>
+    <h2>Vinod Kumar Reddy Nellore computes</h2>
+    <input type="number" id="input1">
+    <input type="number" id="input2">
+    <button onclick="remoteCompute()">compute</button>
+    <div id="result">Result will be displayed here</div>
+</body>
+<script>
+    function remoteCompute(){
+         x = document.getElementById("input1").value
+         y = document.getElementById("input2").value
+        fetch(`http://127.0.0.1:3000/?x=${x}&y=${y}`).then(
+            resp => {
+                return resp.text()
+            }).then(
+                text => {
+                    console.log(text)
+                    document.getElementById("result").innerHTML = text
+                }).catch(
+                    error => {
+                        console.log(error)
+                    });
+    }
+</script>
+</html>
