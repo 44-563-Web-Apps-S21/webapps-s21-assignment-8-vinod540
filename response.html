@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Response</title></head>
+    <body>
+        <h1>Vinod kumar Reddy Nellore generates</h1>
+        <button onclick="getSubject()">Get Subject</button><br>
+        <div id = "Results">The result will displayed here </div>
+
+
+        <script>
+            function getSubject(){
+            fetch(`http://127.0.0.1:3000`).then( (res) => {return res.text()
+            }
+            ).then((text) => {
+            document.getElementById("Results").innerHTML=text
+           }).catch(err => {
+                document.getElementById("Results").innerHTML = err
+            })
+        }
+        </script>
+    </body>
+</html>
